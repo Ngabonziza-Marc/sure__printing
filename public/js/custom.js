@@ -38,3 +38,17 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+
+
+var a =  documet.getElementById("signup");
+var b =  documet.getElementById("signin");
+
+function login(){
+    a.style.left = "4px";
+    b.style.right = "-520px";
+}
+function signup() {
+    a.style.left = "-510px";
+    b.style.right = "5px";
+}

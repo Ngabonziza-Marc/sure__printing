@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "../../../../slides"
+		},
+		{
+			"path": "../../../../../../../opt/lampp/htdocs/php"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../sure_printing"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "sure_printing",
+		"php.debug.executablePath": "../../../../../../opt/lampp/htdocs/php/index.php",
+		"php.validate.executablePath": ""
+	}
+}

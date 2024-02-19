@@ -55,7 +55,7 @@
                 Email : SurePrinting@gmail.com
               </span>
             </a>
-            <a href="">
+            <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
                 Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -127,9 +127,9 @@
                   Screen printing services
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                Transform your clothing line, team uniforms, or promotional merchandise with our custom apparel printing services.
+                 From T-shirts and hoodies to caps and jackets, we offer high-quality prints on a wide variety of fabrics, ensuring 
+                 vibrant colors and lasting durability.
                 </p>
               </div>
             </div>
@@ -162,9 +162,9 @@
                   graphic designing
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                Bring your ideas to life with our graphic design services. Our team of experienced designers works
+                 closely with you to create eye-catching designs that reflect your brand identity and vision. Whether
+                  you need a logo, artwork, or custom graphics, we ensure your prints are unique and impactful.
                 </p>
               </div>
             </div>

@@ -1,4 +1,82 @@
+<?php
+// error messages
+$errors = array();
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $name = $_POST['name'];
+   $email = $_POST['email'];
+   $phone = $_POST['phone'];
+   $password = $_POST['password'];
 
+if (empty($_POST["name"])) {
+$errors[] = "Name is required";
+} else {
+$name = test_input($_POST["name"]);
+
+// Check if the name contains only letters and whitespace
+if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+$errors[] = "Only letters and white space allowed in the name";
+}
+}
+
+// Validate Phone Number
+if (empty($_POST["phone"])) {
+$errors[] = "Phone Number is required";
+} else {
+$phone = test_input($_POST["phone"]);
+
+// Check if the phone number is a valid format
+if (!preg_match("/^\d{10}$/", $phone)) {
+$errors[] = "Invalid phone number format. Please enter 10 digits.";
+}
+}
+// Validate Email
+if (empty($_POST["email"])) {
+$errors[] = "Email is required";
+} else {
+$email = test_input($_POST["email"]);
+
+// Check if the email address is well-formed
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+$errors[] = "Invalid email format";
+}
+}
+
+// Validate Password
+if (empty($_POST["password"])) {
+$errors[] = "Password is required";
+} else {
+$password = test_input($_POST["password"]);
+}
+// If there are no errors, you can proceed with further processing
+if (empty($errors)) {
+// Perform additional actions (e.g., database operations, sending emails)
+// Redirect or display a success message}
+}
+header("Location: login.php");
+exit();
+}
+// Function to sanitize and validate input data
+function test_input($data) {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+}
+?>
+
+<!-- Display error messages, if any -->
+<?php
+if (!empty($errors)) {
+echo '<div style="color: red;">';
+foreach ($errors as $error) {
+echo $error . '<br>';
+}
+echo '</div>';
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,12 +89,12 @@
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <link rel="shortcut icon" href="images/images/sure logo.png" type="">
+        <link rel="shortcut icon" href="images/sure logo.png" type="">
       
         <title> Sure Printing </title>
 
           <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -25,16 +103,15 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
-
     <div class="hero_area">
       <!-- header section strats -->
       <header class="header_section">
@@ -98,22 +175,20 @@
           </div>
         </div>
       </header>
+
+      <div class="formx">
     <section class="contact_section layout_padding-top">
-        <div class="container-fluid">
-          <div class="row">
+
+          <div class="rowone">
             <div class="col-lg-4 col-md-5 offset-md-1">
-              <div class="heading_container">
-                <h2>
-                  register <span>here</span>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-5 offset-md-1">
-              <div class="form_container">
-                <form action="{{ route('login') }}" method="post">
-                 <?php {{ csrf_field(); }} ?>
+              <div class="form_create" id="create">
+                <div class="heading_container">
+                  <h2>
+                    sign <span>up</span>
+                  </h2>
+                </div>
+                <form action="{{ route('users.index') }}" method="POST">
+                  @csrf
                   <div>
                     <input type="text" placeholder="Your Name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
                   </div>
@@ -126,9 +201,12 @@
                   <div>
                     <input type="password" placeholder="Password" name="password" required/>
                   </div>
+                  <div class="link">
+                    <a href="#" id="signin" onclick="login()">Already have an account ?</a><br>
+                  </div>
                   <div class="btn_box">
                     <button type="submit" class="btn" name="button">
-                      SEND
+                      SIGN UP
                     </button>
                   </div>
                 </form>
@@ -136,9 +214,37 @@
             </div>
 
 
-            
 
-                  
+
+            <section class="contact_section layout_padding-top">
+
+              <div class="col-lg-4 col-md-5 offset-md-1">
+                <div class="form_login" id="login">
+                  <div class="heading_container">
+                    <h2>
+                      sign<span>in</span>
+                    </h2>
+                  </div>
+                  <form action="/signin" method="POST">
+                    @csrf
+                    <div>
+                      <input type="text" placeholder="Your Name" name="loginname" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
+                    </div>
+                    <div>
+                      <input type="password" placeholder="Password" name="loginpassword" required/>
+                    </div>
+                    <div class="link">
+                      <a href="#" id="sigin" onclick=signup()>Don't have an account ?</a><br>
+                    </div>
+                    <div class="btn_box">
+                      <button type="submit" class="btn" name="button">
+                        SIGN IN
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
 
 
@@ -148,17 +254,17 @@
 
 
               <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="/public/js/bootstrap.js"></script>
   <!-- owl slider -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="/public/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

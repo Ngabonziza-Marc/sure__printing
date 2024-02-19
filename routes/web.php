@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\users;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+Route::resource('users', UserController::class);
+
+
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/login.php', function () {
+Route::post('/login.php', function () {
     return view('login');
 });
 Route::get('/about.php', function () {
@@ -33,3 +38,8 @@ Route::get('/service.php', function () {
 Route::post('/login', function(){
     return 'welcome';
 });
+
+
+
+Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/singin', [UserController::class, 'signin']);

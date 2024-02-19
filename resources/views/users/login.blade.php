@@ -11,12 +11,12 @@
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <link rel="shortcut icon" href="images/images/sure logo.png" type="">
+        <link rel="shortcut icon" href="images/sure logo.png" type="">
       
         <title> Sure Printing </title>
 
           <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -25,16 +25,15 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
-
     <div class="hero_area">
       <!-- header section strats -->
       <header class="header_section">
@@ -99,44 +98,30 @@
         </div>
       </header>
     <section class="contact_section layout_padding-top">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-4 col-md-5 offset-md-1">
-              <div class="heading_container">
-                <h2>
-                  register <span>here</span>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="row">
+
             <div class="col-lg-4 col-md-5 offset-md-1">
               <div class="form_container">
-                <form action="{{ route('login') }}" method="post">
-                 <?php {{ csrf_field(); }} ?>
+                <div class="heading_container">
+                  <h2>
+                    sign<span>in</span>
+                  </h2>
+                </div>
+                <form action="/signin" method="POST">
+                  @csrf
                   <div>
-                    <input type="text" placeholder="Your Name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
+                    <input type="text" placeholder="Your Name" name="loginname" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
                   </div>
                   <div>
-                    <input type="text" placeholder="Phone Number" name="phone" value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) :'';?>" required/>
-                  </div>
-                  <div>
-                    <input type="email" placeholder="Email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required/>
-                  </div>
-                  <div>
-                    <input type="password" placeholder="Password" name="password" required/>
+                    <input type="password" placeholder="Password" name="loginpassword" required/>
                   </div>
                   <div class="btn_box">
                     <button type="submit" class="btn" name="button">
-                      SEND
+                      SIGN IN
                     </button>
                   </div>
                 </form>
               </div>
             </div>
-
-
-            
 
                   
 
@@ -148,17 +133,17 @@
 
 
               <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="/public/js/bootstrap.js"></script>
   <!-- owl slider -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="/public/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

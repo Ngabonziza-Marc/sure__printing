@@ -55,7 +55,7 @@
                 Email : SurePrinting@gmail.com
               </span>
             </a>
-            <a href="">
+            <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
                 Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -117,13 +117,72 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+
+              About Sure Printing
+
+             Welcome to Sure Printing, where passion for creativity meets the precision of screen printing craftsmanship.
+             Established with a vision to redefine the art of printing, Sure Printing has evolved into a trusted name,
+             offering a spectrum of customized printing solutions to bring your ideas to life.</p>
+
+          <div class="heading_container">
+          <h2>Our <span>Story</span></h2>
+          <p>
+          Sure Printing began its journey with a simple yet profound mission: to transform concepts into tangible, visually striking realities.
+          Founded by a team of dedicated professionals with a shared love for the art of printing, we embarked on a mission to merge innovation, 
+          quality, and customer satisfaction.
+        </p>
+      </div>
+
+          <div class="heading_container">
+           <h2>Our<span>Expertise</span></h2>
+           <p>
+           At Sure Printing, we specialize in turning imagination into reality through the versatile medium of screen printing. 
+            Our skilled artisans and state-of-the-art equipment enable us to cater to a diverse range of printing needs. 
+            From apparel to promotional merchandise and corporate essentials, we offer an extensive array of printing services to 
+            meet your unique requirements.
             </p>
+          </div>
+          <div class="heading_container">
+          <h2 class="heading">Quality <span>Assurance</span></h2>
+          <p>
+           We take pride in our unwavering commitment to delivering top-notch quality. Our meticulous quality assurance processes ensure
+           that each print leaving our facility meets the highest standards. When you choose Sure Printing, you choose excellence that you
+            can see and feel.
+          </p>
+          </div>
+          <div class="heading_container">
+         <h2 class="heading">Innovation <span> and</span> Technology</h2>
+         <p>
+         In an ever-evolving industry, we stay at the forefront of innovation.
+         Sure Printing embraces the latest technologies and trends in screen printing, ensuring that our clients benefit from cutting-edge
+         techniques and the most vibrant, durable prints available.
+         </p>
+          </div>
+          <div class="heading_container">
+          <h2 class="heading">Customer<span>Centric</span> Approach</h2>
+          <p>
+           Our clients are at the heart of everything we do. We believe in building lasting relationships by offering personalized solutions
+            tailored to your needs. From initial consultation to the final product, Sure Printing is dedicated to exceeding your expectations.
+          </p>
+          </div>
+          <div class="heading_container">
+          <h2 class="heading">Environmental <span> Responsibility</span></h2>
+          <p>
+           Sure Printing is committed to sustainability. We strive to minimize our environmental impact by using eco-friendly inks,
+            responsibly sourced materials, and implementing environmentally conscious practices throughout our production processes.
+          </p>
+          </div>
+          <div class="heading_container">
+           <h2 class="heading">Join the Sure Printing <span> Experience</span></h2>
+           <p>
+             Whether you're a business looking to enhance your brand presence, an artist with a creative vision, or an individual seeking
+             personalized items,Sure Printing is here to turn your ideas into reality. Explore the world of possibilities with us  where
+              every print tells a unique story.Contact Sure Printing today, and let us embark on a journey of creativity, quality,
+               and unparalleled printing excellence together.
+            </p>
+          </div>
             <a href="">
-              Read More
+              Join Us
             </a>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -16,21 +17,22 @@
   <title> Sure Printing </title>
 
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+   <!-- bootstrap core css -->
+   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- fonts style -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<!--owl slider stylesheet -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+<!-- font awesome style -->
+<link href="css/font-awesome.min.css" rel="stylesheet" />
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="css/style.css" rel="stylesheet" />
+<!-- responsive style -->
+<link href="css/responsive.css" rel="stylesheet" />
 
 
 </head>
@@ -38,7 +40,9 @@
 <body>
 
   <div class="hero_area">
+
     <!-- header section strats -->
+
     <header class="header_section">
       <div class="header_top">
         <div class="container-fluid ">
@@ -55,7 +59,7 @@
                 Email : SurePrinting@gmail.com
               </span>
             </a>
-            <a href="">
+            <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
                 Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -73,7 +77,7 @@
                </span>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" id="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
             </button>
 
@@ -92,7 +96,7 @@
                   <a class="nav-link" href="contact.php">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                  <a class="nav-link" href="{{route('users.create')}}"> <i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
                 </li>
               </ul>
             </div>
@@ -100,8 +104,10 @@
         </div>
       </div>
     </header>
+
     <!-- end header section -->
     <!-- slider section -->
+    
     <section class="slider_section ">
       <div class="slider_bg_box">
         <img src="images/images/backgound2.jpg" alt="">
@@ -118,8 +124,10 @@
                      
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
-                    </p>
+                    At Sure Printing, we bring your visions to life through the artistry of screen printing.
+                     As a leading name in the industry, we take pride in delivering high-quality, vibrant,
+                      and precisely crafted prints that make a lasting impression. With a commitment to excellence and
+                       a passion for creativity, Sure Printing is your trusted partner for all your custom screen printing needs. </p>
                     <div class="btn-box">
                       <a href="" class="btn1" name="btn1">
                         Join Us
@@ -160,7 +168,9 @@
                       Where imaginations Meets With Fabric ,
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam,
+                       voluptates distinctio, officia architecto tenetur debitis hic aspernatur
+                        libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
                     </p>
                     <div class="btn-box">
                       <a href="login.php" class="btn1" name="btn1">
@@ -181,7 +191,9 @@
       </div>
 
     </section>
+
     <!-- end slider section -->
+
   </div>
 
 
@@ -195,7 +207,9 @@
             Our <span>Services</span>
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+          At Sure Printing, we offer a comprehensive range of screen printing services  With our expertise, 
+          state-of-the-art equipment, and dedication to quality, we guarantee exceptional results that exceed 
+          your expectations. Explore our services below:
           </p>
         </div>
         <div class="row">
@@ -209,13 +223,10 @@
                   Screen printing services
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                Transform your clothing line, team uniforms, or promotional merchandise with our custom apparel printing services.
+                 From T-shirts and hoodies to caps and jackets, we offer high-quality prints on a wide variety of fabrics, ensuring
+                vibrant colors and lasting durability.
                 </p>
-                <a href="service.php">
-                  Read More
-                </a>
               </div>
             </div>
           </div>
@@ -233,9 +244,6 @@
                   The
                   point of using
                 </p>
-                <a href="service.php">
-                  Read More
-                </a>
               </div>
             </div>
           </div>
@@ -250,13 +258,10 @@
                   graphic designing
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                Bring your ideas to life with our graphic design services. Our team of experienced designers works 
+                closely with you to create eye-catching designs that reflect your brand identity and vision. Whether
+                 you need a logo, artwork, or custom graphics, we ensure your prints are unique and impactful.
                 </p>
-                <a href="service.php">
-                  Read More
-                </a>
               </div>
             </div>
           </div>
@@ -275,9 +280,6 @@
                   The
                   point of using
                 </p>
-                <a href="">
-                  Read More
-                </a>
               </div>
             </div>
           </div>
@@ -302,10 +304,9 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+            Welcome to Sure Printing, where passion for creativity meets the precision of screen printing craftsmanship. 
+            Established with a vision to redefine the art of printing, Sure Printing has evolved into a trusted name,
+             offering a spectrum of customized printing solutions to bring your ideas to life.
             </p>
             <a href="about.php">
               Read More
@@ -314,7 +315,7 @@
         </div>
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/images/background.png" alt="Sure Printing">
+            <img src="images/images/workspace.jpg" alt="Sure Printing">
           </div>
         </div>
 
@@ -464,6 +465,7 @@
   <!-- end client section -->
 
   <!-- contact section -->
+
   <section class="contact_section">
     <div class="container-fluid">
       <div class="row">
@@ -512,6 +514,7 @@
       </div>
     </div>
   </section>
+
   <!-- end contact section -->
 
   <!-- info section -->
@@ -566,8 +569,9 @@
               Info
             </h4>
             <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
-            </p>
+            At Sure Printing, we are committed to providing unparalleled service,
+             exceptional quality, and innovative solutions to meet your printing needs.
+              Contact us today </p>
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mx-auto info_col">
@@ -626,20 +630,18 @@
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="js/https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="js/https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
   <!-- custom js -->
   <script type="text/javascript" src="js/custom.js"></script>
   <!-- Google Map -->
-  <script src="js/https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-
-</body>
-
- </html>
+ </body>
+  </html>

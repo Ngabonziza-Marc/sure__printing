@@ -77,19 +77,19 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  ">
                   <li class="nav-item ">
-                    <a class="nav-link" href="index.php">Home </a>
+                    <a class="nav-link" href={{route('index')}}>Home </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="service.php">Services</a>
+                    <a class="nav-link" href={{route('service')}}>Services</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.php"> About </a>
+                    <a class="nav-link" href={{route('about')}}> About </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact Us</a>
+                    <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> Sign up <span class="sr-only">(current)</span></a>
                   </li>
                 </ul>
               </div>
@@ -100,19 +100,22 @@
     <section class="contact_section layout_padding-top">
 
             <div class="col-lg-4 col-md-5 offset-md-1">
-              <div class="form_container">
+              <div class="form_login">
                 <div class="heading_container">
                   <h2>
                     sign<span>in</span>
                   </h2>
                 </div>
-                <form action="/signin" method="POST">
+                <form action={{route('signin')}} method="POST">
                   @csrf
                   <div>
                     <input type="text" placeholder="Your Name" name="loginname" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
                   </div>
                   <div>
                     <input type="password" placeholder="Password" name="loginpassword" required/>
+                  </div>
+                  <div class="link">
+                    <a  href={{route('create')}} id="signin" onclick="login()">Don't have an account ?</a><br>
                   </div>
                   <div class="btn_box">
                     <button type="submit" class="btn" name="button">

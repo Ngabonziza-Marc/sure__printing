@@ -1,81 +1,49 @@
 <?php
-// error messages
+// Initialize the error messages array
 $errors = array();
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $name = $_POST['name'];
-   $email = $_POST['email'];
-   $phone = $_POST['phone'];
-   $password = $_POST['password'];
+    // Retrieve form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
 
-if (empty($_POST["name"])) {
-$errors[] = "Name is required";
-} else {
-$name = test_input($_POST["name"]);
+    // Validate Name
+    if (empty($name)) {
+        $errors['name'] = "Name is required";
+    } elseif (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+        $errors['name'] = "Only letters and white space allowed in the name";
+    }
 
-// Check if the name contains only letters and whitespace
-if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-$errors[] = "Only letters and white space allowed in the name";
-}
-}
+    // Validate Phone Number
+    if (empty($phone)) {
+        $errors['phone'] = "Phone Number is required";
+    } elseif (!preg_match("/^\d{10}$/", $phone)) {
+        $errors['phone'] = "Invalid phone number format. Please enter 10 digits.";
+    }
 
-// Validate Phone Number
-if (empty($_POST["phone"])) {
-$errors[] = "Phone Number is required";
-} else {
-$phone = test_input($_POST["phone"]);
+    // Validate Email
+    if (empty($email)) {
+        $errors['email'] = "Email is required";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Invalid email format";
+    }
 
-// Check if the phone number is a valid format
-if (!preg_match("/^\d{10}$/", $phone)) {
-$errors[] = "Invalid phone number format. Please enter 10 digits.";
-}
-}
-// Validate Email
-if (empty($_POST["email"])) {
-$errors[] = "Email is required";
-} else {
-$email = test_input($_POST["email"]);
+    // Validate Password
+    if (empty($password)) {
+        $errors['password'] = "Password is required";
+    }
 
-// Check if the email address is well-formed
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-$errors[] = "Invalid email format";
+    // If there are no errors, proceed with further processing
+    if (empty($errors)) {
+        // Perform additional actions (e.g., database operations, sending emails)
+        // Redirect or display a success message
+        header("Location: login.php");
+        exit();
+    }
 }
-}
-
-// Validate Password
-if (empty($_POST["password"])) {
-$errors[] = "Password is required";
-} else {
-$password = test_input($_POST["password"]);
-}
-// If there are no errors, you can proceed with further processing
-if (empty($errors)) {
-// Perform additional actions (e.g., database operations, sending emails)
-// Redirect or display a success message}
-}
-header("Location: login.php");
-exit();
-}
-// Function to sanitize and validate input data
-function test_input($data) {
-$data = trim($data);
-$data = stripslashes($data);
-$data = htmlspecialchars($data);
-return $data;
-}
-?>
-
-<!-- Display error messages, if any -->
-<?php
-if (!empty($errors)) {
-echo '<div style="color: red;">';
-foreach ($errors as $error) {
-echo $error . '<br>';
-}
-echo '</div>';
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,19 +123,19 @@ echo '</div>';
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  ">
                   <li class="nav-item ">
-                    <a class="nav-link" href="index.php">Home </a>
+                    <a class="nav-link" href={{route('index')}}>Home </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="service.php">Services</a>
+                    <a class="nav-link" href={{route('service')}}>Services</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.php"> About </a>
+                    <a class="nav-link" href={{route('about')}}> About </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact Us</a>
+                    <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> Login <span class="sr-only">(current)</span></a>
                   </li>
                 </ul>
               </div>
@@ -187,22 +155,30 @@ echo '</div>';
                     sign <span>up</span>
                   </h2>
                 </div>
-                <form action="{{ route('users.index') }}" method="POST">
+                <form action={{ route('users.index') }} method="POST">
                   @csrf
                   <div>
                     <input type="text" placeholder="Your Name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
+                    <?php if (isset($errors['name'])) { ?>
+                      <span style="color: red;"><?php echo $errors['name']; ?></span><?php } ?>
                   </div>
                   <div>
                     <input type="text" placeholder="Phone Number" name="phone" value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) :'';?>" required/>
+                    <?php if (isset($errors['phone'])) { ?>
+                      <span style="color: red;"><?php echo $errors['phone']; ?></span><?php } ?>
                   </div>
                   <div>
                     <input type="email" placeholder="Email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required/>
+                    <?php if (isset($errors['email'])) { ?>
+                      <span style="color: red;"><?php echo $errors['email']; ?></span><?php } ?>
                   </div>
                   <div>
                     <input type="password" placeholder="Password" name="password" required/>
+                    <?php if (isset($errors['password'])) { ?>
+                      <span style="color: red;"><?php echo $errors['password']; ?></span><?php } ?>
                   </div>
                   <div class="link">
-                    <a href="#" id="signin" onclick="login()">Already have an account ?</a><br>
+                    <a href={{route('login')}} id="signin" onclick="login()">Already have an account ?</a><br>
                   </div>
                   <div class="btn_box">
                     <button type="submit" class="btn" name="button">
@@ -210,39 +186,6 @@ echo '</div>';
                     </button>
                   </div>
                 </form>
-              </div>
-            </div>
-
-
-
-
-            <section class="contact_section layout_padding-top">
-
-              <div class="col-lg-4 col-md-5 offset-md-1">
-                <div class="form_login" id="login">
-                  <div class="heading_container">
-                    <h2>
-                      sign<span>in</span>
-                    </h2>
-                  </div>
-                  <form action="/signin" method="POST">
-                    @csrf
-                    <div>
-                      <input type="text" placeholder="Your Name" name="loginname" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
-                    </div>
-                    <div>
-                      <input type="password" placeholder="Password" name="loginpassword" required/>
-                    </div>
-                    <div class="link">
-                      <a href="#" id="sigin" onclick=signup()>Don't have an account ?</a><br>
-                    </div>
-                    <div class="btn_box">
-                      <button type="submit" class="btn" name="button">
-                        SIGN IN
-                      </button>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
 

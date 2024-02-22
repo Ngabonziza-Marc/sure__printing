@@ -18,7 +18,6 @@
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
@@ -80,19 +79,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="index.php">Home </a>
+                  <a class="nav-link" href={{route('index')}}>Home </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.php">Services</a>
+                  <a class="nav-link" href={{route('service')}}>Services</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="about.php"> About <span class="sr-only">(current)</span> </a>
+                  <a class="nav-link" href={{route('about')}}> About <span class="sr-only">(current)</span> </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Contact Us</a>
+                  <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
                 </li>
                 </form>
               </ul>
@@ -260,20 +259,20 @@
               Links
             </h4>
             <div class="info_links">
-              <a class="active" href="index.php">
+              <a class="active" href={{route('index')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Home
               </a>
-              <a class="" href="about.php">
+              <a class="" href={{route('about')}}>
                 <img src="images/nav-bullet.png" alt="">
                 About
               </a>
-              <a class="" href="service.php">
+              <a class="" href={{route('service')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Services
               </a>
 
-              <a class="" href="contact.php">
+              <a class="" href={{route('contact')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Contact Us
               </a>

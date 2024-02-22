@@ -52,3 +52,27 @@ function signup() {
     a.style.left = "-510px";
     b.style.right = "5px";
 }
+
+
+	/* Preloader
+	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+	
+	setTimeout(function () {
+		$('.loader_bg').fadeToggle();
+	}, 1500);
+	
+
+    // Add a click event listener to the menu toggle button
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the menu toggle button
+    var navbartoggler = document.querySelector('.navbar-toggler');
+    // Get the target menu
+    var navbarMenu = document.querySelector('navbarSupportedContent' + navbartoggler.dataset.target);
+
+    // Add a click event listener to the menu toggle button
+    navbartoggler.addEventListener('click', function () {
+        // Toggle the 'is-active' class on both the menu toggle button and the menu itself
+        navbartoggler.classList.toggle('is-active');
+        navbarMenu.classList.toggle('is-active');
+    });
+}); 

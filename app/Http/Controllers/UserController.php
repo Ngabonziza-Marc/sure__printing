@@ -3,21 +3,44 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
-{
+{    
+    public function __construct()
+    {
+        $user=Auth::user();
+        if(!$user){
+            return redirect('/user/login');
+        }
+    } 
     public function index()
     {
         $users = User::all();
         return view('users.index', compact('users'));
+    }
+    public function service()
+    {
+        return view('service');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+        public function login()
+    {
+        return view('login');
     }
 
     public function create()
     {
         return view('users.create');
     }
-
+    public function sign()
+    {
+        return view('users.login');
+    }
     public function signin(Request $request){
          $validatedData = $request -> validate([
             'loginname' => 'required',
@@ -28,14 +51,16 @@ class UserController extends Controller
            $request->session()->regenerate();       
      
          }
-         return redirect('/');
+         return redirect('index');
 
     }
     public function logout (){
          auth()->logout();
          return redirect('/');
     }
-
+    public function about(){
+        return view('about');
+   }
 
     public function store(Request $request)
     {
@@ -51,7 +76,7 @@ class UserController extends Controller
         $user = User::create($validatedData);
         auth()->login($user);
 
-        return view('users.index');
+        return redirect('login');
     }
 
     public function show(User $user)

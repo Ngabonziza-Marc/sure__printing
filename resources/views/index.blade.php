@@ -59,7 +59,7 @@
                 Email : SurePrinting@gmail.com
               </span>
             </a>
-            <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
+            <a href="contact.php">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
                 Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -84,24 +84,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href={{route('index')}}>Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.php">Services</a>
+                  <a class="nav-link" href={{route('service')}}>Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.php"> About</a>
+                  <a class="nav-link" href={{route('about')}}> About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Contact Us</a>
+                  <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('users.create')}}"> <i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
+                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
                 </li>
               </ul>
             </div>
           </nav>
-        </div>
+        </div>        
       </div>
     </header>
 
@@ -129,7 +129,7 @@
                       and precisely crafted prints that make a lasting impression. With a commitment to excellence and
                        a passion for creativity, Sure Printing is your trusted partner for all your custom screen printing needs. </p>
                     <div class="btn-box">
-                      <a href="" class="btn1" name="btn1">
+                      <a href={{route('create')}} class="btn1" name="btn1">
                         Join Us
                       </a>
                     </div>
@@ -150,7 +150,7 @@
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1" name="btn1">
+                      <a href={{route('create')}} class="btn1" name="btn1">
                         Join Us
                       </a>
                     </div>
@@ -173,7 +173,7 @@
                         libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
                     </p>
                     <div class="btn-box">
-                      <a href="login.php" class="btn1" name="btn1">
+                      <a href={{route('create')}} class="btn1" name="btn1">
                         Join Us
                       </a>
                     </div>
@@ -580,19 +580,20 @@
               Links
             </h4>
             <div class="info_links">
-              <a class="active" href="index.php">
+              <a class="active" href={{route('index')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Home
               </a>
-              <a class="" href="about.php">
+              <a class="" href={{route('about')}}>
                 <img src="images/nav-bullet.png" alt="">
                 About
               </a>
-              <a class="" href="service.php">
+              <a class="" href={{route('service')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Services
               </a>
-              <a class="" href="contact.php">
+
+              <a class="" href={{route('contact')}}>
                 <img src="images/nav-bullet.png" alt="">
                 Contact Us
               </a>

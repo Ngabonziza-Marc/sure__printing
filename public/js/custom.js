@@ -1,5 +1,5 @@
 // to get current year
-function getYear() {
+    function getYear() {
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
     document.querySelector("#displayYear").innerHTML = currentYear;
@@ -33,46 +33,47 @@ $(".owl-carousel").owlCarousel({
 /** google_map js **/
 function myMap() {
     var mapProp = {
-        center: new google.maps.LatLng(),
+        center: new google.maps.LatLng(-1.93997923415026, 30.05881317420612),
         zoom: 18,
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    
 }
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the menu toggle button and the navigation menu
+    var menuBtn = document.getElementById('menu-btn');
+    var navMenu = document.getElementById('navbarSupportedContent');
 
-
-
-var a =  documet.getElementById("signup");
-var b =  documet.getElementById("signin");
-
-function login(){
-    a.style.left = "4px";
-    b.style.right = "-520px";
-}
-function signup() {
-    a.style.left = "-510px";
-    b.style.right = "5px";
-}
-
-
-	/* Preloader
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	
-	setTimeout(function () {
-		$('.loader_bg').fadeToggle();
-	}, 1500);
-	
-
-    // Add a click event listener to the menu toggle button
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the menu toggle button
-    var navbartoggler = document.querySelector('.navbar-toggler');
-    // Get the target menu
-    var navbarMenu = document.querySelector('navbarSupportedContent' + navbartoggler.dataset.target);
-
-    // Add a click event listener to the menu toggle button
-    navbartoggler.addEventListener('click', function () {
-        // Toggle the 'is-active' class on both the menu toggle button and the menu itself
-        navbartoggler.classList.toggle('is-active');
-        navbarMenu.classList.toggle('is-active');
+    // Add click event listener to the menu toggle button
+    menuBtn.addEventListener('click', function() {
+      // Toggle the 'show' class on the navigation menu to control its visibility
+      navMenu.classList.toggle('show');
     });
-}); 
+  });
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+         //displaying greeting message
+
+         setTimeout(function() {
+            $('.alert').fadeOut('slow');
+           }, 5000); 
+         //end od greetings

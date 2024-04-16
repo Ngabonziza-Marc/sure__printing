@@ -48,35 +48,46 @@ class UserController extends Controller
          ]);
 
          if(auth()->attempt(['name'=>$validatedData['loginname'], 'password' => $validatedData['loginpassword'] ])){
-           $request->session()->regenerate();       
-     
+           $request->session()->regenerate();   
+
+           return redirect('index');
+
+         }else{
+            return redirect('/');
          }
-         return redirect('index');
 
     }
-    public function logout (){
+        public function logout (){
          auth()->logout();
          return redirect('/');
     }
-    public function about(){
-        return view('about');
+        public function about(){
+         return view('about');
    }
 
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => ['required', 'min:3', 'max:15', Rule::unique('users', 'name') ],
             'phone' => ['required', 'min:10', 'max:15'],
             'email' => ['required','email', Rule::unique('users','email')],
-            'password' => ['required', 'min:8', 'max:100'],
+            'password' => ['required', 'min:8', 'max:50'],
             
+        ],
+        [
+            'name.required' => 'Name is required',
+            'phone.required' => 'Phone number is required',
+            'email.required' => 'Email is required',
+            'email.email' => 'Please enter a valid email address',
+            'password.required' => 'password is required',
         ]);
         
         $validatedData['password'] = bcrypt($validatedData['password']);
         $user = User::create($validatedData);
         auth()->login($user);
 
-        return redirect('login');
+        return redirect('/user/login')->with('success','User created successifully');
+
     }
 
     public function show(User $user)
@@ -108,4 +119,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index');
     }
+
 }

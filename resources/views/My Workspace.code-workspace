@@ -7,10 +7,13 @@
 			"path": "../../../../../../../opt/lampp/htdocs/php"
 		},
 		{
-			"path": "../.."
+			"path": "../../../../sure_printing"
 		},
 		{
-			"path": "../../../../sure_printing"
+			"path": "../../../node-rev"
+		},
+		{
+			"path": "../.."
 		}
 	],
 	"settings": {

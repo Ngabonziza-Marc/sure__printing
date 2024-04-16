@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $greeting = 'Good morning!';
  } elseif ($currentHour >= 12 && $currentHour < 18) {
    $greeting = 'Good afternoon!';
-} elseif ($currentHour >= 18 && $currentHour < 22) {
-$greeting = 'Good evening!';
-} else {
+ } elseif ($currentHour >= 18 && $currentHour < 22) {
+ $greeting = 'Good evening!';
+ } else {
  $greeting = 'Good night!';
-}
+ }
  ?>
 
 
@@ -53,7 +53,7 @@ $greeting = 'Good evening!';
 <!-- font awesome style -->
 <link href="css/font-awesome.min.css" rel="stylesheet"/>
 
-<!-- Custom styles for this template -->
+<!-- Custom  -->
 <link href="css/style.css" rel="stylesheet" />
 <!-- responsive style -->
 <link href="css/responsive.css" rel="stylesheet"/>
@@ -102,7 +102,7 @@ $greeting = 'Good evening!';
              </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -132,18 +132,12 @@ $greeting = 'Good evening!';
         </nav>
       </div>
     </div>
-    
-   
-
-
-     <p><?php echo $greeting;?></p>
-
   </header>
   <!-- end header section -->
   <!-- slider section -->
   <section class="slider_section ">
     <div class="slider_bg_box">
-      <img src="images/images/backgound2.jpg" alt="">
+      <img src="images/images/backgound2.jpg" alt="sure printing">
     </div>
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -162,8 +156,8 @@ $greeting = 'Good evening!';
                     and precisely crafted prints that make a lasting impression. With a commitment to excellence and
                      a passion for creativity, Sure Printing is your trusted partner for all your custom screen printing needs. </p>
 
-                  <div class="btn-box">
-
+                  <div class="alert">
+                    <h3 class="alert"><?php echo $greeting;?></h3>
                   </div>
                 </div>
               </div>
@@ -231,8 +225,10 @@ $greeting = 'Good evening!';
           Our <span>Services</span>
         </h2>
         <p>
-          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-        </p>
+          At Sure Printing, we offer a comprehensive range of screen printing services  With our expertise, 
+          state-of-the-art equipment, and dedication to quality, we guarantee exceptional results that exceed 
+          your expectations. Explore our services below:
+            </p>
       </div>
       <div class="row">
         <div class="col-md-6 ">
@@ -245,11 +241,11 @@ $greeting = 'Good evening!';
                 Screen printing services
               </h5>
               <p>
-                fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                The
-                point of using
+                Transform your clothing line, team uniforms, or promotional merchandise with our custom apparel printing services.
+                 From T-shirts and hoodies to caps and jackets, we offer high-quality prints on a wide variety of fabrics, ensuring
+                vibrant colors and lasting durability.
               </p>
-              <a href="service.php">
+              <a href={{route('service')}}>
                 Read More
               </a>
             </div>
@@ -269,7 +265,7 @@ $greeting = 'Good evening!';
                 The
                 point of using
               </p>
-              <a href="service.php">
+              <a href={{route('service')}}>
                 Read More
               </a>
             </div>
@@ -286,11 +282,11 @@ $greeting = 'Good evening!';
                 graphic designing
               </h5>
               <p>
-                fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                The
-                point of using
+                Bring your ideas to life with our graphic design services. Our team of experienced designers works 
+                closely with you to create eye-catching designs that reflect your brand identity and vision. Whether
+                 you need a logo, artwork, or custom graphics, we ensure your prints are unique and impactful.
               </p>
-              <a href="service.php">
+              <a href={{route('service')}}>
                 Read More
               </a>
             </div>
@@ -311,7 +307,7 @@ $greeting = 'Good evening!';
                 The
                 point of using
               </p>
-              <a href="">
+              <a href={{route('service')}}>
                 Read More
               </a>
             </div>
@@ -515,15 +511,9 @@ $greeting = 'Good evening!';
       <div class="col-lg-4 col-md-5 offset-md-1">
         <div class="form_container contact-form">
 
-          <form action="" method="post">
-            <div>
-              <input type="text" placeholder="Your Name" name="name" required/>
-            </div>
+          <form action={{route('index')}} method="post">
             <div>
               <input type="text" placeholder="Phone Number" name="phone" required/>
-            </div>
-            <div>
-              <input type="email" placeholder="Email" name="email" required/>
             </div>
             <div>
               <input type="text" class="message-box" placeholder="Message"  name="message" required/>
@@ -601,8 +591,9 @@ $greeting = 'Good evening!';
             Info
           </h4>
           <p>
-            necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
-          </p>
+            At Sure Printing, we are committed to providing unparalleled service,
+             exceptional quality, and innovative solutions to meet your printing needs.
+              Contact us today          </p>
         </div>
       </div>
       <div class="col-md-6 col-lg-2 mx-auto info_col">
@@ -660,21 +651,22 @@ $greeting = 'Good evening!';
 <!-- footer section -->
 
 <!-- jQery -->
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 <!-- popper js -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- bootstrap js -->
-<script type="text/javascript" src="js/bootstrap.js"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
 <!-- owl slider -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- custom js -->
-<script type="text/javascript" src="js/custom.js"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+
 <!-- End Google Map -->
+
+</body>
+</html>
 
 @else
  
@@ -740,7 +732,7 @@ $greeting = 'Good evening!';
                 Email : SurePrinting@gmail.com
               </span>
             </a>
-            <a href="contact.php">
+            <a href="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
                 Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -752,16 +744,16 @@ $greeting = 'Good evening!';
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href={{route('index')}}>
               <span>
                 Sure Printing
                </span>
             </a>
-
-            <button class="navbar-toggler" id="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+            <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
             </button>
-
+  
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
@@ -777,12 +769,16 @@ $greeting = 'Good evening!';
                   <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
+                  <form action="/logout" method="post">
+                  @csrf
+                  <a class="nav-link"> <i class="fa fa-user" aria-hidden="true"></i><button class="logbtn">logout</button>
+                  </a>
+                </form>
                 </li>
               </ul>
             </div>
           </nav>
-        </div>        
+        </div>
       </div>
     </header>
 
@@ -791,7 +787,7 @@ $greeting = 'Good evening!';
     
     <section class="slider_section ">
       <div class="slider_bg_box">
-        <img src="images/images/backgound2.jpg" alt="">
+        <img src="images/images/backgound2.jpg" alt="sure printing">
       </div>
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -828,8 +824,10 @@ $greeting = 'Good evening!';
                       Where imaginations Meets With Fabric ,
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam, voluptates distinctio, officia architecto tenetur debitis hic aspernatur libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
-                    </p>
+                      At Sure Printing, we bring your visions to life through the artistry of screen printing.
+                      As a leading name in the industry, we take pride in delivering high-quality, vibrant,
+                       and precisely crafted prints that make a lasting impression. With a commitment to excellence and
+                        a passion for creativity, Sure Printing is your trusted partner for all your custom screen printing needs.                    </p>
                     <div class="btn-box">
                       <a href={{route('create')}} class="btn1" name="btn1">
                         Join Us
@@ -849,9 +847,10 @@ $greeting = 'Good evening!';
                       Where imaginations Meets With Fabric ,
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum magnam,
-                       voluptates distinctio, officia architecto tenetur debitis hic aspernatur
-                        libero commodi atque fugit adipisci, blanditiis quidem dolorum odit voluptas? Voluptate, eveniet?
+                      At Sure Printing, we bring your visions to life through the artistry of screen printing.
+                      As a leading name in the industry, we take pride in delivering high-quality, vibrant,
+                       and precisely crafted prints that make a lasting impression. With a commitment to excellence and
+                        a passion for creativity, Sure Printing is your trusted partner for all your custom screen printing needs.
                     </p>
                     <div class="btn-box">
                       <a href={{route('create')}} class="btn1" name="btn1">
@@ -1165,13 +1164,7 @@ $greeting = 'Good evening!';
 
             <form action="" method="post">
               <div>
-                <input type="text" placeholder="Your Name" name="name" required/>
-              </div>
-              <div>
                 <input type="text" placeholder="Phone Number" name="phone" required/>
-              </div>
-              <div>
-                <input type="email" placeholder="Email" name="email" required/>
               </div>
               <div>
                 <input type="text" class="message-box" placeholder="Message"  name="message" required/>
@@ -1310,21 +1303,21 @@ $greeting = 'Good evening!';
   <!-- footer section -->
 
   <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script src="{{ asset('js/custom.js') }}"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  
   <!-- End Google Map -->
+
+
  </body>
   </html>
 
@@ -1332,8 +1325,3 @@ $greeting = 'Good evening!';
 
 @endauth
 
-
-
-</body>
-
- </html>

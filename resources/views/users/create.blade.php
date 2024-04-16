@@ -1,50 +1,14 @@
-<?php
-// Initialize the error messages array
-$errors = array();
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    
+@endif
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-
-    // Validate Name
-    if (empty($name)) {
-        $errors['name'] = "Name is required";
-    } elseif (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-        $errors['name'] = "Only letters and white space allowed in the name";
-    }
-
-    // Validate Phone Number
-    if (empty($phone)) {
-        $errors['phone'] = "Phone Number is required";
-    } elseif (!preg_match("/^\d{10}$/", $phone)) {
-        $errors['phone'] = "Invalid phone number format. Please enter 10 digits.";
-    }
-
-    // Validate Email
-    if (empty($email)) {
-        $errors['email'] = "Email is required";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = "Invalid email format";
-    }
-
-    // Validate Password
-    if (empty($password)) {
-        $errors['password'] = "Password is required";
-    }
-
-    // If there are no errors, proceed with further processing
-    if (empty($errors)) {
-        // Perform additional actions (e.g., database operations, sending emails)
-        // Redirect or display a success message
-        header("Location: login.php");
-        exit();
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -58,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="description" content="" />
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/sure logo.png" type="">
-      
+
         <title> Sure Printing </title>
 
           <!-- bootstrap core css -->
@@ -116,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </span>
               </a>
   
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class=""> </span>
               </button>
   
@@ -135,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="nav-link" href={{route('contact')}}>Contact Us</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> SignIn <span class="sr-only">(current)</span></a>
                   </li>
                 </ul>
               </div>
@@ -155,27 +119,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     sign <span>up</span>
                   </h2>
                 </div>
-                <form action={{ route('users.index') }} method="POST">
+                <form action={{ route('register') }} method="POST">
                   @csrf
                   <div>
-                    <input type="text" placeholder="Your Name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" required/>
-                    <?php if (isset($errors['name'])) { ?>
-                      <span style="color: red;"><?php echo $errors['name']; ?></span><?php } ?>
+                    <input type="text" placeholder="User name" name="name"  required/>
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <div>
-                    <input type="text" placeholder="Phone Number" name="phone" value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) :'';?>" required/>
-                    <?php if (isset($errors['phone'])) { ?>
-                      <span style="color: red;"><?php echo $errors['phone']; ?></span><?php } ?>
+                    <input type="text" placeholder="Phone number" name="phone" required/>
+                    @error('phone')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <div>
-                    <input type="email" placeholder="Email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required/>
-                    <?php if (isset($errors['email'])) { ?>
-                      <span style="color: red;"><?php echo $errors['email']; ?></span><?php } ?>
+                    <input type="email" placeholder="User email" name="email"required/>
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <div>
-                    <input type="password" placeholder="Password" name="password" required/>
-                    <?php if (isset($errors['password'])) { ?>
-                      <span style="color: red;"><?php echo $errors['password']; ?></span><?php } ?>
+                    <input type="password" placeholder="User password" name="password" required/>
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                   </div>
                   <div class="link">
                     <a href={{route('login')}} id="signin" onclick="login()">Already have an account ?</a><br>
@@ -183,36 +151,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="btn_box">
                     <button type="submit" class="btn" name="button">
                       SIGN UP
-                    </button>
-                  </div>
+                    </button><br>
+                    <a href="{{ url('auth/facebook') }}" class="facebook-button">
+                      <i class="fab fa-facebook-f"></i> Continue with Facebook
+                    </a>
+                    <a href="{{ url('auth/googleauth') }}" class="google-button">
+                      <i class="fab fa-google"></i> Continue with Google
+                    </a>                    
+                     </div>
                 </form>
               </div>
             </div>
 
-
-
-
-
-
-
-
-              <!-- jQery -->
-  <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
+  <!-- jQery -->
+  <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="/public/js/bootstrap.js"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
-  <script type="text/javascript" src="/public/js/custom.js"></script>
+  <script src="{{ asset('js/custom.js') }}"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  
   <!-- End Google Map -->
+  <!-- fontawesome cdn link -->
+  <script src="https://kit.fontawesome.com/2a421485f4.js" crossorigin="anonymous"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the menu toggle button and the navigation menu
+        var menuBtn = document.getElementById('menu-btn');
+        var navMenu = document.getElementById('navbarSupportedContent');
+    
+        // Add click event listener to the menu toggle button
+        menuBtn.addEventListener('click', function() {
+          // Toggle the 'show' class on the navigation menu to control its visibility
+          navMenu.classList.toggle('show');
+        });
+      });
+    </script>
     
 </body>
 </html>

@@ -73,7 +73,7 @@
               </span>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
             </button>
 
@@ -92,7 +92,7 @@
                   <a class="nav-link" href={{route('contact')}}>Contact Us <span class="sr-only">(current)</span> </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> signin</a>
                 </li>
               </ul>
             </div>
@@ -110,23 +110,18 @@
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="heading_container">
             <h2>
-              Contact Us
+              Contact<span>Us</span>
             </h2>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
-          <div class="form_container">
-            <form action="" method="post">
-              <div>
-                <input type="text" placeholder="Your Name" name="name" required/>
-              </div>
+          <div class="form_container contact-form">
+            <form action={{route('contact')}} method="post">
+              @csrf
               <div>
                 <input type="text" placeholder="Phone Number" name="phone" required/>
-              </div>
-              <div>
-                <input type="email" placeholder="Email" name="email" required/>
               </div>
               <div>
                 <input type="text" class="message-box" placeholder="Message"  name="message" required/>
@@ -137,12 +132,21 @@
                 </button>
               </div>
             </form>
+
+            @if(session('success'))
+           <div class="alert alert-success">
+           {{ session('success') }}
+          </div>
+          @endif
+
           </div>
         </div>
         <div class="col-lg-7 col-md-6 px-0">
           <div class="map_container">
             <div class="map">
-              <div id="googleMap"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5238551792754!2d30.05610737385002!3d-1.9432228980391495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca4225c20dbf9%3A0x4df1d2db83a6b3e0!2sRue%20du%20lac%20Thema%2C%20Kigali!5e0!3m2!1sen!2srw!4v1706286551555!5m2!1sen!2srw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+              <div id="googleMap">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63801.551168641025!2d30.03772959520558!3d-1.9120176560469966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1713081126101!5m2!1sen!2srw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               </div>
             </div>
           </div>
         </div>
@@ -203,8 +207,9 @@
               Info
             </h4>
             <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
-            </p>
+              At Sure Printing, we are committed to provide unparalleled service,
+              exceptional quality, and innovative solutions to meet your printing needs.
+               Contact us today            </p>
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mx-auto info_col">
@@ -262,20 +267,18 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
   <!-- owl slider -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script src="{{ asset('js/custom.js') }}"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  
   <!-- End Google Map -->
 
 </body>

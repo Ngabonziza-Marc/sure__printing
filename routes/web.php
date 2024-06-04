@@ -19,10 +19,12 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\postsController;
+
+use function Termwind\render;
+
 Route::resource('users', UserController::class);
 
-
- Route::get('/', function () {
+Route::get('/', function () {
     return view('index');
 });
 Route::get('/create', [UserController::class,'create'])->name('create');
@@ -31,8 +33,8 @@ Route::get('/index', [UserController::class,'index'])->name('index');
 Route::get('/contact', [UserController::class,'contact'])->name('contact');
 Route::get('/about', [UserController::class,'about'])->name('about');
 
-Route::get('/user/login', [UserController::class,'sign'])->name('sign');
-Route::post('/user/login', [UserController::class,'sign'])->name('login');
+Route::get('/login', [UserController::class,'sign'])->name('sign');
+Route::post('/login', [UserController::class,'sign'])->name('login');
 Route::post('/register', [UserController::class,'store'])->name('register');
 
 Route::post('/user/signin', [UserController::class,'signin'])->name('signin');

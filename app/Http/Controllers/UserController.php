@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
-{    
+{
     public function __construct()
     {
         $user=Auth::user();
         if(!$user){
             return redirect('/user/login');
         }
-    } 
+    }
     public function index()
     {
         $users = User::all();
@@ -35,11 +35,11 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        return view('create');
     }
     public function sign()
     {
-        return view('users.login');
+        return view('login');
     }
     public function signin(Request $request){
          $validatedData = $request -> validate([
@@ -48,7 +48,7 @@ class UserController extends Controller
          ]);
 
          if(auth()->attempt(['name'=>$validatedData['loginname'], 'password' => $validatedData['loginpassword'] ])){
-           $request->session()->regenerate();   
+           $request->session()->regenerate();
 
            return redirect('index');
 
@@ -72,7 +72,7 @@ class UserController extends Controller
             'phone' => ['required', 'min:10', 'max:15'],
             'email' => ['required','email', Rule::unique('users','email')],
             'password' => ['required', 'min:8', 'max:50'],
-            
+
         ],
         [
             'name.required' => 'Name is required',
@@ -81,12 +81,12 @@ class UserController extends Controller
             'email.email' => 'Please enter a valid email address',
             'password.required' => 'password is required',
         ]);
-        
+
         $validatedData['password'] = bcrypt($validatedData['password']);
         $user = User::create($validatedData);
         auth()->login($user);
 
-        return redirect('/user/login')->with('success','User created successifully');
+        return redirect('login')->with('success','User created successifully');
 
     }
 
@@ -117,7 +117,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('index');
     }
 
 }

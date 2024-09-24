@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -18,7 +20,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view('index', compact('users'));
+
     }
     public function service()
     {
@@ -52,10 +55,15 @@ class UserController extends Controller
 
            return redirect('index');
 
-         }else{
-            return redirect('/');
-         }
 
+         }else{
+            echo "User Not Found ";
+           // return redirect('/');
+         }
+    }
+    public function users(){
+        $users = User::all();
+        return view('index',compact('user'));
     }
         public function logout (){
          auth()->logout();
@@ -119,5 +127,6 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('index');
     }
+
 
 }

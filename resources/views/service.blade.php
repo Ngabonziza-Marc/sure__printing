@@ -39,66 +39,9 @@
 
   <div class="hero_area">
     <!-- header section strats -->
-    <header class="header_section">
-      <div class="header_top">
-        <div class="container-fluid ">
-          <div class="contact_nav">
-            <a href="">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              <span>
-                Call : +250 782641094
-              </span>
-            </a>
-            <a href="">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span>
-                Email : SurePrinting@gmail.com
-              </span>
-            </a>
-            <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Location : Kigali, Ndamage building, 1<sup>st</sup>floor
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="header_bottom">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.php">
-              <span>
-                Sure Printing
-              </span>
-            </a>
-            <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""> </span>
-            </button>
+    
+    @include('navbar')
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
-                <li class="nav-item ">
-                  <a class="nav-link" href={{route('index')}}>Home </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href={{route('service')}}>Services <span class="sr-only">(current)</span> </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href={{route('about')}}> About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href={{route('contact')}}>Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href={{route('login')}}> <i class="fa fa-user" aria-hidden="true"></i> singin</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
     <!-- end header section -->
   </div>
 
@@ -127,7 +70,7 @@
                 </h5>
                 <p>
                 Transform your clothing line, team uniforms, or promotional merchandise with our custom apparel printing services.
-                 From T-shirts and hoodies to caps and jackets, we offer high-quality prints on a wide variety of fabrics, ensuring 
+                 From T-shirts and hoodies to caps and jackets, we offer high-quality prints on a wide variety of fabrics, ensuring
                  vibrant colors and lasting durability.
                 </p>
               </div>
@@ -316,7 +259,7 @@
   <script src="{{ asset('js/custom.js') }}"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  
+
   <!-- End Google Map -->
 
 </body>

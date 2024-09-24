@@ -408,6 +408,21 @@ a:focus {
   transition: all .3s;
   border: none;
 }
+.btnx{
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #23b00a;
+  box-shadow: 5px 5px 10px #0000003f;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border: none;
+}
+.btnx:hover{
+    background-color: #27ee04;
+
+}
 
 .slider_section .detail-box .btn-box .btn1:hover {
   background-color: #27ee04;
@@ -1149,12 +1164,12 @@ a:focus {
 .logbtn:hover{
   color: #31d913;
 }
-.alert p{ 
+.alert p{
   color:rgba(30, 255, 0, 0.52);
   font-size: larger;
-  
+
 }
-  
+
 
 .loader_bg {
   position: fixed;
@@ -1239,10 +1254,10 @@ a:focus {
 
   .contact_section .form_create{
     margin-left: 0rem;
-  }  
+  }
   .contact_section .form_login{
     margin-left: 0rem;
-  }  
+  }
 }
 @media only screen and (max-width: 600px) {
   .google-button {

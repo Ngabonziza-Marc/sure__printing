@@ -6,7 +6,7 @@
             @endforeach
         </ul>
     </div>
-    
+
 @endif
 
 <!DOCTYPE html>
@@ -62,7 +62,6 @@
                   Email : SurePrinting@gmail.com
                 </span>
               </a>
-              <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15950.095967562538!2d30.0582882!3d-1.943165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca53bcedcec83%3A0x364181b3f977253d!2sSure%20Printing!5e0!3m2!1sen!2srw!4v1706353394552!5m2!1sen!2srw">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
                   Location : Kigali, Ndamage building, 1<sup>st</sup>floor
@@ -79,11 +78,11 @@
                   Sure Printing
                 </span>
               </a>
-  
+
               <button class="navbar-toggler" id="menu-btn" onclick()  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class=""> </span>
               </button>
-  
+
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  ">
                   <li class="nav-item ">
@@ -157,7 +156,7 @@
                     </a>
                     <a href="{{ url('auth/googleauth') }}" class="google-button">
                       <i class="fab fa-google"></i> Continue with Google
-                    </a>                    
+                    </a>
                      </div>
                 </form>
               </div>
@@ -175,7 +174,7 @@
   <script src="{{ asset('js/custom.js') }}"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  
+
   <!-- End Google Map -->
   <!-- fontawesome cdn link -->
   <script src="https://kit.fontawesome.com/2a421485f4.js" crossorigin="anonymous"></script>
@@ -185,7 +184,7 @@
         // Get the menu toggle button and the navigation menu
         var menuBtn = document.getElementById('menu-btn');
         var navMenu = document.getElementById('navbarSupportedContent');
-    
+
         // Add click event listener to the menu toggle button
         menuBtn.addEventListener('click', function() {
           // Toggle the 'show' class on the navigation menu to control its visibility
@@ -193,6 +192,6 @@
         });
       });
     </script>
-    
+
 </body>
 </html>
